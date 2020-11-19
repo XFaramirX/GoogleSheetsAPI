@@ -1,6 +1,7 @@
 const fs = require("fs");
 const readline = require("readline");
 const { google } = require("googleapis");
+const { language } = require("googleapis/build/src/apis/language");
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
@@ -92,6 +93,7 @@ function listMajors(auth) {
         console.log("Element, English:");
         // Print columns A and E, which correspond to indices 0 and 4.
         productHero(rows);
+        console.log(jsonTranslation);
       } else {
         console.log("No data found.");
       }
@@ -99,16 +101,20 @@ function listMajors(auth) {
   );
 }
 
-function productHero(rows) {
-  console.log(rows[0]);
-  HeroProduct.productHero.eyebrow = rows[0][1];
-  HeroProduct.productHero.headline = rows[1][1];
-  HeroProduct.productHero.textOne = rows[2][1];
-  HeroProduct.productHero.textTwo = rows[3][1];
-  HeroProduct.productHero.cta[0].text = rows[4][1];
-  HeroProduct.productHero.cta[1].text = rows[5][1];
+let translations = ["german", "french"];
+let jsonTranslation = [];
 
-  console.log(HeroProduct);
+function productHero(rows) {
+  translations.forEach((lang) => {
+    let idiom = JSON.parse(JSON.stringify(HeroProduct));
+    idiom.language = lang.toString();
+    jsonTranslation.push(idiom);
+  });
+
+  for (let i = 0; i < translations.length; i++) {
+    jsonTranslation[i].productHero.eyebrow = rows[i][i + 1];
+    jsonTranslation[i].productHero.headline = rows[i + 1][i + 1];
+  }
 }
 
 let HeroProduct = {
