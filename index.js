@@ -84,13 +84,12 @@ function listMajors(auth) {
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: "1B3834S8a1WMwZ4uHGiui-01kR0KfzwOAG_nhFYbfaho",
-      range: "A2:E",
+      range: "A2:G",
     },
     (err, res) => {
       if (err) return console.log("The API returned an error: " + err);
       const rows = res.data.values;
       if (rows.length) {
-        console.log("Element, English:");
         // Print columns A and E, which correspond to indices 0 and 4.
         productHero(rows);
         console.log(jsonTranslation);
@@ -101,10 +100,52 @@ function listMajors(auth) {
   );
 }
 
-let translations = ["german", "french"];
+let translations = [
+  "english",
+  "german",
+  "french",
+  "italian",
+  "Spanish",
+  "Dutch",
+];
 let jsonTranslation = [];
 
 function productHero(rows) {
+  let HeroProduct = {
+    productHero: {
+      video: {
+        cover: {
+          small: "../../images/product-hero/glycerine-poster-s.jpg",
+          large: "../../images/product-hero/glycerine-poster.jpg",
+          alt: "Placeholder",
+        },
+        src: {
+          large:
+            "../../images/product-hero/S21_Glycerin-19_Launch_XL_Hero_v4.mp4",
+          small:
+            "../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4",
+        },
+      },
+      cta: [
+        {
+          link: "#",
+          text: "",
+          type: "primary",
+        },
+        {
+          link: "#",
+          text: "",
+          type: "primary",
+        },
+      ],
+      headline: "",
+      eyebrow: "",
+      textOne: "",
+      textTwo: null,
+      theme: "theme--dark--pink",
+    },
+  };
+
   translations.forEach((lang) => {
     let idiom = JSON.parse(JSON.stringify(HeroProduct));
     idiom.language = lang.toString();
@@ -112,41 +153,12 @@ function productHero(rows) {
   });
 
   for (let i = 0; i < translations.length; i++) {
-    jsonTranslation[i].productHero.eyebrow = rows[i][i + 1];
-    jsonTranslation[i].productHero.headline = rows[i + 1][i + 1];
+    jsonTranslation[i].productHero.eyebrow = rows[0][i + 1];
+    jsonTranslation[i].productHero.headline = rows[1][i + 1];
+    jsonTranslation[i].productHero.textOne = rows[2][i + 1];
+    jsonTranslation[i].productHero.textTwo = rows[3][i + 1];
+    jsonTranslation[i].productHero.cta[0].text = rows[4][i + 1];
+    jsonTranslation[i].productHero.cta[1].text = rows[5][i + 1];
+    jsonTranslation[i].productHero.video.cover = rows[6][i + 1];
   }
 }
-
-let HeroProduct = {
-  productHero: {
-    video: {
-      cover: {
-        small: "../../images/product-hero/glycerine-poster-s.jpg",
-        large: "../../images/product-hero/glycerine-poster.jpg",
-        alt: "Placeholder",
-      },
-      src: {
-        large:
-          "../../images/product-hero/S21_Glycerin-19_Launch_XL_Hero_v4.mp4",
-        small: "../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4",
-      },
-    },
-    cta: [
-      {
-        link: "#",
-        text: "",
-        type: "primary",
-      },
-      {
-        link: "#",
-        text: "",
-        type: "primary",
-      },
-    ],
-    headline: "",
-    eyebrow: "",
-    textOne: "",
-    textTwo: null,
-    theme: "theme--dark--pink",
-  },
-};
