@@ -3,29 +3,20 @@ const readline = require("readline");
 const { google } = require("googleapis");
 const { language } = require("googleapis/build/src/apis/language");
 
+const TOKEN_PATH = "token.json";
+
+const getSheetData = require("./src/glycerin19Launch/glycerin19Launch");
 // If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = "token.json";
-let translations = [
-  "english",
-  "german",
-  "french",
-  "italian",
-  "Spanish",
-  "Dutch",
-];
-let jsonTranslation = [];
-let jsonProductLandingTranslation = [];
 
 // Load client secrets from a local file.
 fs.readFile("credentials.json", (err, content) => {
   if (err) return console.log("Error loading client secret file:", err);
   // Authorize a client with credentials, then call the Google Sheets API.
-
-  authorize(JSON.parse(content), getProductLanding);
+  authorize(JSON.parse(content), getSheetData);
 });
 
 /**
@@ -83,158 +74,4 @@ function getNewToken(oAuth2Client, callback) {
       callback(oAuth2Client);
     });
   });
-}
-
-/**
- * Prints the names and majors of students in a sample spreadsheet:
- * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
- * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
- */
-function getProductHero(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1B3834S8a1WMwZ4uHGiui-01kR0KfzwOAG_nhFYbfaho",
-      range: "A2:G",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        // Print columns A and E, which correspond to indices 0 and 4.
-        productHero(rows);
-        console.log(jsonTranslation);
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
-
-function getProductLanding(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1B3834S8a1WMwZ4uHGiui-01kR0KfzwOAG_nhFYbfaho",
-      range: 'HeroProduct!A2:G',
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        // Print columns A and E, which correspond to indices 0 and 4.
-        productLanding(rows);
-        console.log(jsonProductLandingTranslation);
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
-
-function productHero(rows) {
-  let HeroProduct = {
-    productHero: {
-      video: {
-        cover: {
-          small: "../../images/product-hero/glycerine-poster-s.jpg",
-          large: "../../images/product-hero/glycerine-poster.jpg",
-          alt: "Placeholder",
-        },
-        src: {
-          large:
-            "../../images/product-hero/S21_Glycerin-19_Launch_XL_Hero_v4.mp4",
-          small:
-            "../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4",
-        },
-      },
-      cta: [
-        {
-          link: "#",
-          text: "",
-          type: "primary",
-        },
-        {
-          link: "#",
-          text: "",
-          type: "primary",
-        },
-      ],
-      headline: "",
-      eyebrow: "",
-      textOne: "",
-      textTwo: null,
-      theme: "theme--dark--pink",
-    },
-  };
-
-  translations.forEach((lang) => {
-    let idiom = JSON.parse(JSON.stringify(HeroProduct));
-    idiom.language = lang.toString();
-    jsonTranslation.push(idiom);
-  });
-
-  for (let i = 0; i < translations.length; i++) {
-    jsonTranslation[i].productHero.eyebrow = rows[0][i + 1];
-    jsonTranslation[i].productHero.headline = rows[1][i + 1];
-    jsonTranslation[i].productHero.textOne = rows[2][i + 1];
-    jsonTranslation[i].productHero.textTwo = rows[3][i + 1];
-    jsonTranslation[i].productHero.cta[0].text = rows[4][i + 1];
-    jsonTranslation[i].productHero.cta[1].text = rows[5][i + 1];
-    jsonTranslation[i].productHero.video.cover = rows[6][i + 1];
-  }
-}
-
-function productLanding(rows) {
-  let ProductLanding = {
-    productLanding: {
-      video: {
-        cover: {
-          small: "../../images/product-hero/glycerine-poster-s.jpg",
-          large: "../../images/product-hero/glycerine-poster.jpg",
-          alt: "Placeholder",
-        },
-        src: {
-          large:
-            "../../images/product-hero/S21_Glycerin-19_Launch_XL_Hero_v4.mp4",
-          small:
-            "../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4",
-        },
-      },
-      cta: [
-        {
-          link: "#",
-          text: "",
-          type: "primary",
-        },
-        {
-          link: "#",
-          text: "",
-          type: "primary",
-        },
-      ],
-      headline: "",
-      eyebrow: "",
-      textOne: "",
-      textTwo: null,
-      theme: "theme--dark--pink",
-    },
-  };
-
-  translations.forEach((lang) => {
-    let idiom = JSON.parse(JSON.stringify(ProductLanding));
-    idiom.language = lang.toString();
-    jsonProductLandingTranslation.push(idiom);
-  });
-
-  console.log(rows);
-  for (let i = 0; i < translations.length; i++) {
-    jsonProductLandingTranslation[i].productLanding.eyebrow = rows[0][i + 1];
-    jsonProductLandingTranslation[i].productLanding.headline = rows[1][i + 1];
-    jsonProductLandingTranslation[i].productLanding.textOne = rows[2][i + 1];
-    jsonProductLandingTranslation[i].productLanding.textTwo = rows[3][i + 1];
-    jsonProductLandingTranslation[i].productLanding.cta[0].text = rows[4][i + 1];
-    jsonProductLandingTranslation[i].productLanding.cta[1].text = rows[5][i + 1];
-    jsonProductLandingTranslation[i].productLanding.video.cover = rows[6][i + 1];
-  }
 }

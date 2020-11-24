@@ -1,0 +1,32 @@
+{
+  "productHero": {
+    "video": {
+      "cover": {
+        "small": "../../images/product-hero/glycerine-poster-s.jpg",
+        "large": "../../images/product-hero/glycerine-poster.jpg",
+        "alt": "Placeholder"
+      },
+      "src": {
+        "large": "../../images/product-hero/S21_Glycerin-19_Launch_XL_Hero_v4.mp4",
+        "small": "../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4"
+      }
+    },
+    "cta": [
+      {
+        "link": "#",
+        "text": "Shop women",
+        "type": "primary"
+      },
+      {
+        "link": "#",
+        "text": "Shop men",
+        "type": "primary"
+      }
+    ],
+    "headline": "The new Glycerine 20",
+    "eyebrow": "Our smoothest run ever",
+    "textOne": "Our smoothest run just got smoother",
+    "textTwo": null,
+    "theme": "theme--dark--pink"
+  }
+}
