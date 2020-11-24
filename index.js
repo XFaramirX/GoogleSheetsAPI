@@ -5,7 +5,8 @@ const { language } = require("googleapis/build/src/apis/language");
 
 const TOKEN_PATH = "token.json";
 
-const getSheetData = require("./src/glycerin19Launch/glycerin19Launch");
+const getGlycerin19Launch = require("./src/glycerin19Launch/fetchData.js");
+const getRunfulnesP1 = require("./src/RunfulnessP1/fetchData.js");
 // If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -16,7 +17,8 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 fs.readFile("credentials.json", (err, content) => {
   if (err) return console.log("Error loading client secret file:", err);
   // Authorize a client with credentials, then call the Google Sheets API.
-  authorize(JSON.parse(content), getSheetData);
+  authorize(JSON.parse(content), getGlycerin19Launch);
+  authorize(JSON.parse(content), getRunfulnesP1);
 });
 
 /**

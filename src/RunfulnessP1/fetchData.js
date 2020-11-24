@@ -16,7 +16,7 @@ function glycerineLaunchPage(auth) {
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: "1VneH5neC5OPKnUEICXCsDJHxtgnIGw6H1zwtFGpWuH8",
-      range: "Glycerin 19 Launch LP!B2:G",
+      range: "Runfulness Phase 1 LP!B2:G",
     },
     (err, res) => {
       if (err) return console.log("The API returned an error: " + err);
@@ -33,7 +33,7 @@ function glycerineLaunchPage(auth) {
   );
 
   function getGlycerine(rows) {
-    var pageJson = require("./glycerin19.json");
+    var pageJson = require("./runfulnessP1.json");
 
     //Create a new json file for each language and sets a property language.
     translations.forEach((lang) => {
@@ -59,7 +59,7 @@ function glycerineLaunchPage(auth) {
 function createFile(jsonTranslation) {
   for (let i = 0; i < translations.length; i++) {
     fs.writeFile(
-      "./languages/glycerin19/" + jsonTranslation[i].language + ".json",
+      "./languages/runfulnessP1/" + jsonTranslation[i].language + ".json",
       JSON.stringify(jsonTranslation[i]),
       function (err) {
         if (err) throw err;
