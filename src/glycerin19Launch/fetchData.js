@@ -41,6 +41,7 @@ function glycerineLaunchPage(auth) {
       idiom.language = lang.toString();
       jsonTranslation.push(idiom);
     });
+    //Getting Components for page
     getProductHero(rows);
   }
 
