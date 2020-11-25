@@ -1,1 +1,135 @@
-{"productHero":{"video":{"cover":"Nos gusta pensar que el Runfulness es como el mindfulness que se desbloquea al correr. El efecto de salir a correr es tan bueno, tan liberador, que te permite olvidarte de tus pies por completo, llevándote a lugares a los que tus pies no pueden llegar. Es en ese estado mental que el correr puede llegar a cambiar tu día, tu vida e incluso el mundo. Descubre, a continuación, la experiencia Runfulness de un corredor.","src":{"large":"../../images/product-hero/S21_Glycerin-19_Launch_XL_Hero_v4.mp4","small":"../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4"}},"cta":[{"link":"#","text":"El poder del Runfulness","type":"primary"},{"link":"#","text":"Olvídate de tus pies y libera tu mente","type":"primary"}],"headline":"Salir a correr puede desbloquear ideas nuevas; es algo que llamamos “Runfulness” y nuestra misión es explorar este poder. Comparte tu experiencia con el “Runfulness” para tener la oportunidad de recibir fondos para hacer realidad tus ideas realidad mediante la Run Fund.","eyebrow":"El Proyecto Runfulness","textOne":"Vídeo ambiental de corredores con las zapatillas Glycerin 19 de Brooks.","textTwo":null,"theme":"theme--dark--pink"},"language":"Spanish"}
+{
+  "heroMedia": {
+    "theme": "theme--dark--blue",
+    "type": "gradient",
+    "background": {
+      "image": "../../images/ghost10_3.jpg",
+      "alt": "Vídeo ambiental de corredores con las zapatillas Glycerin 19 de Brooks."
+    },
+    "content": {
+      "title": { "text": "El Proyecto Runfulness", "image": null },
+      "description": "Salir a correr puede desbloquear ideas nuevas; es algo que llamamos “Runfulness” y nuestra misión es explorar este poder. Comparte tu experiencia con el “Runfulness” para tener la oportunidad de recibir fondos para hacer realidad tus ideas realidad mediante la Run Fund.",
+      "actions": null
+    }
+  },
+  "intro": {
+    "theme": "theme--dark--blue",
+    "copyBlock": {
+      "alignment": "left",
+      "theme": "theme--dark--blue",
+      "eyebrow": "El poder del Runfulness",
+      "headline": "Olvídate de tus pies y libera tu mente",
+      "bigHeadline": true,
+      "subHeadline": null,
+      "copy": "Nos gusta pensar que el Runfulness es como el mindfulness que se desbloquea al correr. El efecto de salir a correr es tan bueno, tan liberador, que te permite olvidarte de tus pies por completo, llevándote a lugares a los que tus pies no pueden llegar. Es en ese estado mental que el correr puede llegar a cambiar tu día, tu vida e incluso el mundo. Descubre, a continuación, la experiencia Runfulness de un corredor.",
+      "cta": null
+    },
+    "mediaCard": {
+      "spacing": "huge",
+      "theme": "theme--dark--blue",
+      "images": [
+        {
+          "image": {
+            "alt": "Un mundo ilustrado con el texto “El Proyecto Runfulness” delante, rodeado de nubes, brillantina y gráficos de flechas.",
+            "src": {
+              "1x": "../../images/media-card/8x5.jpg",
+              "2x": "../../images/media-card/8x5@2x.jpg",
+              "3x": "../../images/media-card/8x5@3x.jpg"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "section1": {
+    "theme": "theme--dark--blue",
+    "mediaCard": {
+      "spacing": "default",
+      "theme": "theme--dark--blue",
+      "images": [
+        {
+          "image": {
+            "alt": "Un corredor de Brooks en un estado de Runfulness.",
+            "src": {
+              "1x": "../../images/media-card/8x5.jpg",
+              "2x": "../../images/media-card/8x5@2x.jpg",
+              "3x": "../../images/media-card/8x5@3x.jpg"
+            }
+          }
+        }
+      ]
+    },
+    "quote": {
+      "spacing": "large",
+      "mark": false,
+      "text": "“It suddenly clicked and I found clarity and peace with my decision.”",
+      "bigText": true,
+      "source": { "name": "First name, Last name", "title": null }
+    }
+  },
+  "section2": {
+    "copyBlock": {
+      "alignment": "center",
+      "theme": "theme--light--blue",
+      "eyebrow": "Introducing the rund fund",
+      "headline": "What is the Rund Fund?",
+      "bigHeadline": true,
+      "subHeadline": null,
+      "copy": "As part of our ongoing journey to share and tap into the power of Runfulness, we want to hear how Runfulness has inspired you. Share how Runfulness has led you to an idea that changes a day, a life, or even the world. In return, we may donate funds and resources to help fuel your idea further."
+    }
+  },
+  "sectionCopyOne": {
+    "copyBlock": {
+      "alignment": "center",
+      "theme": "theme--light--blue",
+      "eyebrow": "One runner will recieve",
+      "headline": "<strong>$100.000</strong>",
+      "bigHeadline": true,
+      "subHeadline": null,
+      "cta": null
+    }
+  },
+  "sectionCopyTwo": {
+    "copyBlock": {
+      "alignment": "center",
+      "theme": "theme--light--blue",
+      "eyebrow": "Four runners will recieve",
+      "headline": "<strong>$25.000</strong>",
+      "bigHeadline": true,
+      "subHeadline": null,
+      "cta": null
+    }
+  },
+  "section3": {
+    "theme": "theme--color--blue",
+    "copyBlock": {
+      "alignment": "center",
+      "theme": "theme--color--blue",
+      "eyebrow": "Experience Runfulness for yourself",
+      "headline": "The Glycerine 19 is our <br /> softest shoe yet.",
+      "bigHeadline": true,
+      "subHeadline": null,
+      "copy": "Packed with cushioning, the Glycerin 19 helps you forget your feet and free your mind so you can reach a state of Runfulness.",
+      "cta": [
+        { "link": "#", "text": "Shop the Glycerin 19", "type": "primary" }
+      ]
+    },
+    "mediaCard": {
+      "spacing": "huge",
+      "theme": "theme--color--blue",
+      "images": [
+        {
+          "image": {
+            "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
+            "src": {
+              "1x": "../../images/media-card/8x5.jpg",
+              "2x": "../../images/media-card/8x5@2x.jpg",
+              "3x": "../../images/media-card/8x5@3x.jpg"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "language": "Spanish"
+}

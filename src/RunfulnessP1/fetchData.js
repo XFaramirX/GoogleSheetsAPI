@@ -24,7 +24,6 @@ function glycerineLaunchPage(auth) {
       if (rows.length) {
         // Print columns A and E, which correspond to indices 0 and 4.
         getGlycerine(rows);
-
         createFile(jsonTranslation);
       } else {
         console.log("No data found.");
@@ -41,17 +40,21 @@ function glycerineLaunchPage(auth) {
       idiom.language = lang.toString();
       jsonTranslation.push(idiom);
     });
-    getProductHero(rows);
+    getHeroMedia(rows);
   }
 
-  function getProductHero(rows) {
+  function getHeroMedia(rows) {
     for (let i = 0; i < translations.length; i++) {
-      jsonTranslation[i].productHero.eyebrow = rows[0][i + 1];
-      jsonTranslation[i].productHero.headline = rows[1][i + 1];
-      jsonTranslation[i].productHero.textOne = rows[2][i + 1];
-      jsonTranslation[i].productHero.cta[0].text = rows[4][i + 1];
-      jsonTranslation[i].productHero.cta[1].text = rows[5][i + 1];
-      jsonTranslation[i].productHero.video.cover = rows[6][i + 1];
+      jsonTranslation[i].heroMedia.background.alt = rows[2][i + 1];
+      jsonTranslation[i].heroMedia.content.title.text = rows[0][i + 1];
+      jsonTranslation[i].heroMedia.content.description = rows[1][i + 1];
+      jsonTranslation[i].intro.copyBlock.eyebrow = rows[4][i + 1];
+      jsonTranslation[i].intro.copyBlock.headline = rows[5][i + 1];
+      jsonTranslation[i].intro.copyBlock.copy = rows[6][i + 1];
+      jsonTranslation[i].intro.mediaCard.images[0].image.alt = rows[7][i + 1];
+
+      jsonTranslation[i].section1.mediaCard.images[0].image.alt =
+        rows[12][i + 1];
     }
   }
 }
