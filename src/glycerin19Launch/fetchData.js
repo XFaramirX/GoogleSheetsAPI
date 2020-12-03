@@ -23,9 +23,9 @@ function glycerineLaunchPage(auth) {
       const rows = res.data.values;
       if (rows.length) {
         // Print columns A and E, which correspond to indices 0 and 4.
-        getGlycerine(rows);
+        //getGlycerine(rows);
 
-        createFile(jsonTranslation);
+        //createFile(jsonTranslation);
       } else {
         console.log("No data found.");
       }
