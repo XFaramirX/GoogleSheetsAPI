@@ -58,7 +58,7 @@ const createFile = (jsonTranslation, path) => {
       JSON.stringify(jsonTranslation[i]),
       (err) => {
         if (err) throw err;
-        console.log("Trasnlation completed");
+        console.log("Translation completed");
       }
     );
   })
