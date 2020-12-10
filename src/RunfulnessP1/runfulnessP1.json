@@ -1,173 +1,173 @@
 {
-  "landingRepeater": {
-      "heroMedia": {
-          "theme": "theme--dark--blue",
-          "type": "gradient",
-          "background": {
-              "image": "../../images/ghost10_3.jpg",
-              "alt": "Hero Image"
-          },
-          "content": {
-              "title": {
-                  "text": "The <strong> Runfulness </strong><br>Project",
-                  "image": null
-              },
-              "description": "A good run can unlock new ideas-we call this 'Runfulness' and we're on a mission to explore its power. Share your experience with Runfulness for a chance to recieve funds to turn your ideas into reality through the Run Fund.",
-              "actions": null
-          }
-      },
-      "articleSections": [
-          {
-              "columnsContainer": {
-                  "theme": "theme--dark--blue",
-                  "columns": [
-                      {
-                          "copyBlock": {
-                              "alignment": "left",
-                              "theme": null,
-                              "eyebrow": "The power of Runfulness",
-                              "headline": "Forget your feet and free your mind",
-                              "bigHeadline": true,
-                              "subHeadline": null,
-                              "copy": "We like to think of Runfulness as mindfulness unlocked by running. <br>It's the effect of a run that is so good, so freeing, it allows you to <br>forget your feet altogether-taking your mind to places your feet <br>can't go. It's in this state where you find the power to change a day, <br>a life, the world. <br /><br /> Discover one runner's Runfulness journey below.",
-                              "cta": null
-                          }
-                      },
-                      {
-                          "mediaCard": {
-                              "spacing": "huge",
-                              "theme": null,
-                              "images": [
-                                  {
-                                      "image": {
-                                          "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
-                                          "src": {
-                                              "1x": "../../images/media-card/8x5.jpg",
-                                              "2x": "../../images/media-card/8x5@2x.jpg",
-                                              "3x": "../../images/media-card/8x5@3x.jpg"
-                                          }
-                                      }
-                                  }
-                              ]
-                          },
-                          "copyBlock": null
-                      }
-                  ]
-              }
-          },
-          {
-              "columnsContainer": {
-                  "theme": "theme--dark--blue",
-                  "columns": [
-                      {
-                          "mediaCard": {
-                              "spacing": "default",
-                              "theme": null,
-                              "images": [
-                                  {
-                                      "image": {
-                                          "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
-                                          "src": {
-                                              "1x": "../../images/media-card/8x5.jpg",
-                                              "2x": "../../images/media-card/8x5@2x.jpg",
-                                              "3x": "../../images/media-card/8x5@3x.jpg"
-                                          }
-                                      }
-                                  }
-                              ]
-                          },
-                          "copyBlock": null
-                      },
-                      {
-                          "copyBlock": {
-                              "alignment": "left",
-                              "theme": null,
-                              "eyebrow": "Runfulness in action",
-                              "headline": "“It suddenly clicked and I found clarity and peace with my decision.",
-                              "bigHeadline": false,
-                              "subHeadline": null,
-                              "copy": "First name, Last name"
-                          }
-                      }
-                  ]
-              }
-          },
-          {
-              "copyBlock": {
-                  "alignment": "center",
-                  "theme": "theme--light--blue",
-                  "eyebrow": "Introducing the rund fund",
-                  "headline": "What is the Rund Fund?",
-                  "bigHeadline": true,
-                  "subHeadline": null,
-                  "copy": "As part of our ongoing journey to share and tap into the power of Runfulness, we want to hear how Runfulness has inspired you. Share how Runfulness has led you to an idea that changes a day, a life, or even the world. In return, we may donate funds and resources to help fuel your idea further."
-              }
-          },
-          {
-              "columnsContainer": {
-                  "theme": "theme--light--blue",
-                  "columns": [
-                      {
-                          "copyBlock": {
-                              "alignment": "center",
-                              "theme": null,
-                              "eyebrow": "One runner will recieve",
-                              "headline": "<strong>$100.000</strong>",
-                              "bigHeadline": true,
-                              "subHeadline": null,
-                              "cta": null
-                          }
-                      },
-                      {
-                          "copyBlock": {
-                              "alignment": "center",
-                              "theme": null,
-                              "eyebrow": "Four runners will recieve",
-                              "headline": "<strong>$25.000</strong>",
-                              "bigHeadline": true,
-                              "subHeadline": null,
-                              "cta": null
-                          }
-                      }
-                  ]
-              }
-          },
-          {
-              "copyBlock": {
-                  "alignment": "center",
-                  "theme": "theme--color--blue",
-                  "eyebrow": "Experience Runfulness for yourself",
-                  "headline": "The Glycerine 19 is our <br /> softest shoe yet.",
-                  "bigHeadline": true,
-                  "subHeadline": null,
-                  "copy": "Packed with cushioning, the Glycerin 19 helps you forget your feet and free your mind so you can reach a state of Runfulness.",
-                  "cta": [
-                      {
-                          "link": "#",
-                          "text": "Shop the Glycerin 19",
-                          "type": "primary"
-                      }
-                  ]
-              }
-          },
-          {
-              "mediaCard": {
-                  "spacing": "huge",
-                  "theme": "theme--color--blue",
-                  "images": [
-                      {
-                          "image": {
-                              "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
-                              "src": {
-                                  "1x": "../../images/media-card/8x5.jpg",
-                                  "2x": "../../images/media-card/8x5@2x.jpg",
-                                  "3x": "../../images/media-card/8x5@3x.jpg"
-                              }
-                          }
-                      }
-                  ]
-              }
-          }
-      ]
-  }
+    "landingRepeater": {
+        "heroMedia": {
+            "theme": "theme--dark--blue",
+            "type": "gradient",
+            "background": {
+                "image": "../../images/ghost10_3.jpg",
+                "alt": "Hero Image"
+            },
+            "content": {
+                "title": {
+                    "text": "The <strong> Runfulness </strong><br>Project",
+                    "image": null
+                },
+                "description": "A good run can unlock new ideas-we call this 'Runfulness' and we're on a mission to explore its power. Share your experience with Runfulness for a chance to recieve funds to turn your ideas into reality through the Run Fund.",
+                "actions": null
+            }
+        },
+        "articleSections": [
+            {
+                "columnsContainer": {
+                    "theme": "theme--dark--blue",
+                    "columns": [
+                        {
+                            "copyBlock": {
+                                "alignment": "left",
+                                "theme": null,
+                                "eyebrow": "The power of Runfulness",
+                                "headline": "Forget your feet and free your mind",
+                                "bigHeadline": true,
+                                "subHeadline": null,
+                                "copy": "We like to think of Runfulness as mindfulness unlocked by running. <br>It's the effect of a run that is so good, so freeing, it allows you to <br>forget your feet altogether-taking your mind to places your feet <br>can't go. It's in this state where you find the power to change a day, <br>a life, the world. <br /><br /> Discover one runner's Runfulness journey below.",
+                                "cta": null
+                            }
+                        },
+                        {
+                            "mediaCard": {
+                                "spacing": "huge",
+                                "theme": null,
+                                "images": [
+                                    {
+                                        "image": {
+                                            "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
+                                            "src": {
+                                                "1x": "../../images/media-card/8x5.jpg",
+                                                "2x": "../../images/media-card/8x5@2x.jpg",
+                                                "3x": "../../images/media-card/8x5@3x.jpg"
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "copyBlock": null
+                        }
+                    ]
+                }
+            },
+            {
+                "columnsContainer": {
+                    "theme": "theme--dark--blue",
+                    "columns": [
+                        {
+                            "mediaCard": {
+                                "spacing": "default",
+                                "theme": null,
+                                "images": [
+                                    {
+                                        "image": {
+                                            "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
+                                            "src": {
+                                                "1x": "../../images/media-card/8x5.jpg",
+                                                "2x": "../../images/media-card/8x5@2x.jpg",
+                                                "3x": "../../images/media-card/8x5@3x.jpg"
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "copyBlock": null
+                        },
+                        {
+                            "copyBlock": {
+                                "alignment": "left",
+                                "theme": null,
+                                "eyebrow": "Runfulness in action",
+                                "headline": "“It suddenly clicked and I found clarity and peace with my decision.",
+                                "bigHeadline": false,
+                                "subHeadline": null,
+                                "copy": "First name, Last name"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "copyBlock": {
+                    "alignment": "center",
+                    "theme": "theme--light--blue",
+                    "eyebrow": "Introducing the rund fund",
+                    "headline": "What is the Rund Fund?",
+                    "bigHeadline": true,
+                    "subHeadline": null,
+                    "copy": "As part of our ongoing journey to share and tap into the power of Runfulness, we want to hear how Runfulness has inspired you. Share how Runfulness has led you to an idea that changes a day, a life, or even the world. In return, we may donate funds and resources to help fuel your idea further."
+                }
+            },
+            {
+                "columnsContainer": {
+                    "theme": "theme--light--blue",
+                    "columns": [
+                        {
+                            "copyBlock": {
+                                "alignment": "center",
+                                "theme": null,
+                                "eyebrow": "One runner will recieve",
+                                "headline": "<strong>$100.000</strong>",
+                                "bigHeadline": true,
+                                "subHeadline": null,
+                                "cta": null
+                            }
+                        },
+                        {
+                            "copyBlock": {
+                                "alignment": "center",
+                                "theme": null,
+                                "eyebrow": "Four runners will recieve",
+                                "headline": "<strong>$25.000</strong>",
+                                "bigHeadline": true,
+                                "subHeadline": null,
+                                "cta": null
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "copyBlock": {
+                    "alignment": "center",
+                    "theme": "theme--color--blue",
+                    "eyebrow": "Experience Runfulness for yourself",
+                    "headline": "The Glycerine 19 is our <br /> softest shoe yet.",
+                    "bigHeadline": true,
+                    "subHeadline": null,
+                    "copy": "Packed with cushioning, the Glycerin 19 helps you forget your feet and free your mind so you can reach a state of Runfulness.",
+                    "cta": [
+                        {
+                            "link": "#",
+                            "text": "Shop the Glycerin 19",
+                            "type": "primary"
+                        }
+                    ]
+                }
+            },
+            {
+                "mediaCard": {
+                    "spacing": "huge",
+                    "theme": "theme--color--blue",
+                    "images": [
+                        {
+                            "image": {
+                                "alt": "Illustrated Brooks Glycerin 19 and Glycerin GTS 19 shoes with a yellow arrow pointing to the yellow highlighted GuideRails support in the GTS 19.",
+                                "src": {
+                                    "1x": "../../images/media-card/8x5.jpg",
+                                    "2x": "../../images/media-card/8x5@2x.jpg",
+                                    "3x": "../../images/media-card/8x5@3x.jpg"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }
