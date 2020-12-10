@@ -22,6 +22,10 @@ const spreadsheetToJson = (rows) => {
 const getGlycerinTranslations = (json, jsonTranslations) => {
   translations.forEach((_, i) => {
     jsonTranslations[i].landingRepeater.productHero.video.cover.alt = json['Hero Product']['Alt text'][i];
+    jsonTranslations[i].landingRepeater.productHero.video.cover.large = json['Hero Product']['video/cover/large'][i] ? json['Hero Product']['video/cover/large'][i] : json['Hero Product']['video/cover/large'][0];
+    jsonTranslations[i].landingRepeater.productHero.video.cover.small = json['Hero Product']['video/cover/small'][i] ? json['Hero Product']['video/cover/small'][i] : json['Hero Product']['video/cover/small'][0];
+    jsonTranslations[i].landingRepeater.productHero.video.src.large = json['Hero Product']['video/src/large'][i] ? json['Hero Product']['video/src/large'][i] : json['Hero Product']['video/src/large'][0];
+    jsonTranslations[i].landingRepeater.productHero.video.src.small = json['Hero Product']['video/src/small'][i] ? json['Hero Product']['video/src/small'][i] : json['Hero Product']['video/src/small'][0];
     jsonTranslations[i].landingRepeater.productHero.eyebrow = json['Hero Product'].Eyebrow[i];
     jsonTranslations[i].landingRepeater.productHero.headline = json['Hero Product']['Header 2 - Tease'][i];
 
@@ -32,15 +36,23 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[1].text = json['Intro / Copy Block']['CTA2 - Tease'][i];
 
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.alt = json['Section1 / Copy Block']['Alt text'][i];
+    jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.src['1x'] = json['Section1 / Copy Block']['src1x'][i] ? json['Section1 / Copy Block']['src1x'][i] : json['Section1 / Copy Block']['src1x'][0];
+    jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.src['2x'] = json['Section1 / Copy Block']['src2x'][i] ? json['Section1 / Copy Block']['src2x'][i] : json['Section1 / Copy Block']['src2x'][0];
+    jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.src['3x'] = json['Section1 / Copy Block']['src3x'][i] ? json['Section1 / Copy Block']['src3x'][i] : json['Section1 / Copy Block']['src3x'][0];
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[1].copyBlock.headline = json['Section1 / Copy Block'].Subhead[i];
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[1].copyBlock.copy = json['Section1 / Copy Block'].Body[i];
-    
+
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.partial.alt = json['Media-List']['Alt Text'][i];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.partial.src = json['Media-List']['src'][i] ? json['Media-List']['src'][i] : json['Media-List']['src'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].icon.url = json['Media-List']['items/icon/url'][i] ? json['Media-List']['items/icon/url'][i] : json['Media-List']['items/icon/url'][0];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[0].headline = json['Media-List'].Header[i];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].headline = json['Media-List'].Header2[i];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].copy = json['Media-List'].Body[i];
 
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.alt = json.NewsLetterForm['Alt text'][i];
+    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['1x'] = json.NewsLetterForm['src1x'][i] ? json.NewsLetterForm['src1x'][i] : json.NewsLetterForm['src1x'][0];
+    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['2x'] = json.NewsLetterForm['src2x'][i] ? json.NewsLetterForm['src2x'][i] : json.NewsLetterForm['src2x'][0];
+    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['3x'] = json.NewsLetterForm['src3x'][i] ? json.NewsLetterForm['src3x'][i] : json.NewsLetterForm['src3x'][0];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.header = json.NewsLetterForm['Header - Tease'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.description = json.NewsLetterForm['Body - Tease'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.label = json.NewsLetterForm['Eyebrow - Tease'][i];
@@ -61,7 +73,7 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.copy = json['Section4 / Copy Block'].Body[i];
     jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.cta[0].text = json['Section4 / Copy Block'].CTA[i]
   });
-  return jsonTranslations; 
+  return jsonTranslations;
 }
 
 const getRunfulnessTranslations = (json, jsonTranslations) => {
