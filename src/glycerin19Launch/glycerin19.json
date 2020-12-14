@@ -12,6 +12,7 @@
                     "small": "../../images/product-hero/S21_Glycerin-19_Launch_S_Hero_v4.mp4"
                 }
             },
+            "secondaryExperience": true,
             "cta": null,
             "headline": "From a run to a journey",
             "eyebrow": null,
@@ -170,10 +171,7 @@
                 "mediaCard": {
                     "spacing": "huge",
                     "theme": "theme--dark--yellow",
-                    "caption": {
-                        "copy": "This is the caption to the video above that is hosted on BrightCove.",
-                        "heading": "Video via Brightcove"
-                    },
+                    "caption": null,
                     "images": null,
                     "video": {
                         "account": 6193427204001,
