@@ -56,8 +56,10 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.header = json.NewsLetterForm['Header - Tease'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.description = json.NewsLetterForm['Body - Tease'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.label = json.NewsLetterForm['Eyebrow - Tease'][i];
+    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.complianceMessage = json.NewsLetterForm['Email message'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.placeholder = json.NewsLetterForm['Pre-populated form field copy - Tease'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.label = json.NewsLetterForm['Eyebrow2 - Tease'][i];
+    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.complianceMessage = json.NewsLetterForm['Phone message'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.placeholder = json.NewsLetterForm['Pre-populated form field copy2 - Tease'][i];
 
     jsonTranslations[i].landingRepeater.articleSections[4].copyBlock.headline = json['Section2 / Copy Block']['Header - Tease'][i];
