@@ -14,9 +14,9 @@
             },
             "secondaryExperience": true,
             "cta": null,
-            "headline": "From a run to a journey",
+            "headline": "Let your mind run free",
             "eyebrow": null,
-            "textOne": null,
+            "textOne": "From a run to a journey",
             "textTwo": null,
             "countdown": null,
             "theme": "theme--dark--pink"
@@ -87,11 +87,16 @@
                     "mediaTheme": "theme--light--pink",
                     "listTheme": "theme--white--blue",
                     "media": {
-                        "image": null,
-                        "partial": {
-                            "src": "/images/media-with-list/3-DesktopImage.jpg",
-                            "alt": "Blog Content"
-                        }
+                        "image": {
+                            "src": {
+                                "1x": "../../images/landings/glycerin/media-list/XL_Media-List_Featured_Still.jpg",
+                                "2x": "../../images/landings/glycerin/media-list/XL_Media-List_Featured_Still.jpg",
+                                "3x": "../../images/landings/glycerin/media-list/XL_Media-List_Featured_Still.jpg"
+                            },
+                            "alt": "A close-up shot of man running in a pair of blue Brooks Glycerin 19 shoes while illustrated clouds float across.",
+                            "fit": "cover"
+                        },
+                        "partial": null
                     },
                     "items": [
                         {
@@ -103,6 +108,24 @@
                                 "alt": ""
                             },
                             "headline": "Super soft confort",
+                            "copy": "The right balance of foam, air, and rubber <br>deliver a soft comfortable run.",
+                            "cta": null
+                        },
+                        {
+                            "icon": {
+                                "url": "/images/media-with-list/2-Thumbnail2.png",
+                                "alt": ""
+                            },
+                            "headline": "Lightweight",
+                            "copy": "The right balance of foam, air, and rubber <br>deliver a soft comfortable run.",
+                            "cta": null
+                        },
+                        {
+                            "icon": {
+                                "url": "/images/media-with-list/2-Thumbnail2.png",
+                                "alt": ""
+                            },
+                            "headline": "Durable",
                             "copy": "The right balance of foam, air, and rubber <br>deliver a soft comfortable run.",
                             "cta": null
                         }
