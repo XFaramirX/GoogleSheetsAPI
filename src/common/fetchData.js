@@ -27,7 +27,8 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.productHero.video.src.large = json['Hero Product']['video/src/large'][i] ? json['Hero Product']['video/src/large'][i] : json['Hero Product']['video/src/large'][0];
     jsonTranslations[i].landingRepeater.productHero.video.src.small = json['Hero Product']['video/src/small'][i] ? json['Hero Product']['video/src/small'][i] : json['Hero Product']['video/src/small'][0];
     jsonTranslations[i].landingRepeater.productHero.eyebrow = json['Hero Product'].Eyebrow[i];
-    jsonTranslations[i].landingRepeater.productHero.headline = json['Hero Product']['Header 2 - Tease'][i];
+    jsonTranslations[i].landingRepeater.productHero.headline = json['Hero Product']['Header 1'][i];
+    jsonTranslations[i].landingRepeater.productHero.textOne = json['Hero Product']['Header 2 - Tease'][i];
 
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.eyebrow = json['Intro / Copy Block']['Eyebrow - Tease'][i],
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.headline = json['Intro / Copy Block'].Header[i];
@@ -42,12 +43,24 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[1].copyBlock.headline = json['Section1 / Copy Block'].Subhead[i];
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[1].copyBlock.copy = json['Section1 / Copy Block'].Body[i];
 
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.partial.alt = json['Media-List']['Alt Text'][i];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.partial.src = json['Media-List']['src'][i] ? json['Media-List']['src'][i] : json['Media-List']['src'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.alt = json['Media-List']['Alt Text'][i];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['1x'] = json['Media-List']['src'][i] ? json['Media-List']['src'][i] : json['Media-List']['src'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['2x'] = json['Media-List']['src2'][i] ? json['Media-List']['src2'][i] : json['Media-List']['src2'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['3x'] = json['Media-List']['src3'][i] ? json['Media-List']['src3'][i] : json['Media-List']['src3'][0];
+
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].icon.url = json['Media-List']['items/icon/url'][i] ? json['Media-List']['items/icon/url'][i] : json['Media-List']['items/icon/url'][0];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[0].headline = json['Media-List'].Header[i];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].headline = json['Media-List'].Header2[i];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].copy = json['Media-List'].Body[i];
+
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].icon.url = json['Media-List']['items/icon2/url'][i] ? json['Media-List']['items/icon2/url'][i] : json['Media-List']['items/icon2/url'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].headline = json['Media-List'].Subhead[i];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].copy = json['Media-List'].BodySubhead[i];
+
+
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].icon.url = json['Media-List']['items/icon3/url'][i] ? json['Media-List']['items/icon3/url'][i] : json['Media-List']['items/icon3/url'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].headline = json['Media-List'].Subhead2[i];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].copy = json['Media-List'].BodySubhead[i];
 
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.alt = json.NewsLetterForm['Alt text'][i];
     jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['1x'] = json.NewsLetterForm['src1x'][i] ? json.NewsLetterForm['src1x'][i] : json.NewsLetterForm['src1x'][0];
