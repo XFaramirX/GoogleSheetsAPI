@@ -202,13 +202,7 @@
                     "spacing": "huge",
                     "theme": "theme--dark--yellow",
                     "caption": null,
-                    "images": null,
-                    "video": {
-                        "account": 6193427204001,
-                        "id": 6199865163001,
-                        "label": "placeholder title",
-                        "max-width": "960px"
-                    }
+                    "images": null
                 }
             },
             {
