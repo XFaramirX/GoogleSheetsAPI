@@ -98,38 +98,7 @@
                         },
                         "partial": null
                     },
-                    "items": [
-                        {
-                            "headline": "DNA LOFT <br> cushioning for <br><em>ultimate softness</em>"
-                        },
-                        {
-                            "icon": {
-                                "url": "/images/media-with-list/2-Thumbnail2.png",
-                                "alt": ""
-                            },
-                            "headline": "Super soft confort",
-                            "copy": "The right balance of foam, air, and rubber <br>deliver a soft comfortable run.",
-                            "cta": null
-                        },
-                        {
-                            "icon": {
-                                "url": "/images/media-with-list/2-Thumbnail2.png",
-                                "alt": ""
-                            },
-                            "headline": "Lightweight",
-                            "copy": "The right balance of foam, air, and rubber <br>deliver a soft comfortable run.",
-                            "cta": null
-                        },
-                        {
-                            "icon": {
-                                "url": "/images/media-with-list/2-Thumbnail2.png",
-                                "alt": ""
-                            },
-                            "headline": "Durable",
-                            "copy": "The right balance of foam, air, and rubber <br>deliver a soft comfortable run.",
-                            "cta": null
-                        }
-                    ]
+                    "items": []
                 }
             },
             {

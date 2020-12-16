@@ -3,7 +3,7 @@ const { google } = require("googleapis");
 const { auth } = require("googleapis/build/src/apis/abusiveexperiencereport");
 
 const translations = ["eng", "ger", "fre", "ita", "spa"];
-const urlPrefix = '../../images/'
+const urlPrefix = '../../images/landings/';
 
 const spreadsheetToJson = (rows) => {
   let currentSection = '';
@@ -33,7 +33,7 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
 
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.eyebrow = json['Intro / Copy Block']['Eyebrow'] ? json['Intro / Copy Block']['Eyebrow'][i] : null;
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.headline = json['Intro / Copy Block'].Header[i];
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.copy = json['Intro / Copy Block']['Body'];
+    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.copy = json['Intro / Copy Block']['Body'][i];
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[0].text = json['Intro / Copy Block']['CTA'] ? json['Intro / Copy Block']['CTA'][i] : null;
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[1].text = json['Intro / Copy Block']['CTA2'] ? json['Intro / Copy Block']['CTA2'][i] : null;
 
@@ -48,15 +48,28 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['1x'] = json['Media-List']['src'][i] ? urlPrefix +  json['Media-List']['src'][i] : urlPrefix + json['Media-List']['src'][0];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['2x'] = json['Media-List']['src2'][i] ? urlPrefix +  json['Media-List']['src2'][i] : urlPrefix + json['Media-List']['src2'][0];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['3x'] = json['Media-List']['src3'][i] ? urlPrefix +  json['Media-List']['src3'][i] : urlPrefix + json['Media-List']['src3'][0];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].icon.url = json['Media-List']['items/icon/url'][i] ? urlPrefix +  json['Media-List']['items/icon/url'][i] : urlPrefix + json['Media-List']['items/icon/url'][0];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[0].headline = json['Media-List'].Header[i];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].headline = json['Media-List'].Header2[i];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].copy = json['Media-List'].Body[i];
+    const items = [
+      {
+        headline: json['Media-List'].Header[i],
+      },
+      {
+        icon: {
+          url: json['Media-List']['items/icon/url'][i] ? urlPrefix +  json['Media-List']['items/icon/url'][i] : urlPrefix + json['Media-List']['items/icon/url'][0],
+        },
+        headline: json['Media-List']['Header2'][i],
+        copy: json['Media-List']['Body'][i]
+      }
+    ];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items = items;
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].icon.url = json['Media-List']['items/icon/url'][i] ? urlPrefix +  json['Media-List']['items/icon/url'][i] : urlPrefix + json['Media-List']['items/icon/url'][0];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[0].headline = json['Media-List'].Header[i];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].headline = json['Media-List'].Header2[i];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[1].copy = json['Media-List'].Body[i];
 
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].icon.url = json['Media-List']['items/icon2/url'][i] ? urlPrefix + json['Media-List']['items/icon2/url'][i] : urlPrefix + json['Media-List']['items/icon2/url'][0];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].headline = json['Media-List'].Subhead[i];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].icon.url = json['Media-List']['items/icon2/url'][i] ? urlPrefix + json['Media-List']['items/icon2/url'][i] : urlPrefix + json['Media-List']['items/icon2/url'][0];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].headline = json['Media-List'].Subhead[i];
     //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].copy = json['Media-List'].BodySubhead[i];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].icon.url = json['Media-List']['items/icon3/url'][i] ? urlPrefix + json['Media-List']['items/icon3/url'][i] : urlPrefix + json['Media-List']['items/icon3/url'][0];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].icon.url = json['Media-List']['items/icon3/url'][i] ? urlPrefix + json['Media-List']['items/icon3/url'][i] : urlPrefix + json['Media-List']['items/icon3/url'][0];
     //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].headline = json['Media-List'].Subhead2[i];
     //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].copy = json['Media-List'].BodySubhead[i];
 
