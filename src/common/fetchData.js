@@ -34,8 +34,19 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.eyebrow = json['Intro / Copy Block']['Eyebrow'] ? json['Intro / Copy Block']['Eyebrow'][i] : null;
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.headline = json['Intro / Copy Block'].Header[i];
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.copy = json['Intro / Copy Block']['Body'][i];
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[0].text = json['Intro / Copy Block']['CTA'] ? json['Intro / Copy Block']['CTA'][i] : null;
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[1].text = json['Intro / Copy Block']['CTA2'] ? json['Intro / Copy Block']['CTA2'][i] : null;
+    const cta = json['Intro / Copy Block']['CTA'] ? [
+      {
+        text: json['Intro / Copy Block']['CTA'][i],
+        link: "#",
+        type: "primary"
+      },
+      {
+        text: json['Intro / Copy Block']['CTA2'][i],
+        link: "#",
+        type: "primary"
+      }
+    ] : null;
+    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta = cta;
 
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.alt = json['Section1 / Copy Block']['Alt text'][i];
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.src['1x'] = json['Section1 / Copy Block']['src1x'][i] ? urlPrefix +  json['Section1 / Copy Block']['src1x'][i] : urlPrefix + json['Section1 / Copy Block']['src1x'][0];
@@ -58,6 +69,20 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
         },
         headline: json['Media-List']['Header2'][i],
         copy: json['Media-List']['Body'][i]
+      },
+      {
+        icon: {
+          url: json['Media-List']['items/icon2/url'][i] ? urlPrefix +  json['Media-List']['items/icon2/url'][i] : urlPrefix + json['Media-List']['items/icon2/url'][0],
+        },
+        headline: json['Media-List']['Subhead'][i],
+        copy: json['Media-List']['BodySubhead'][i]
+      },
+      {
+        icon: {
+          url: json['Media-List']['items/icon3/url'][i] ? urlPrefix +  json['Media-List']['items/icon3/url'][i] : urlPrefix + json['Media-List']['items/icon3/url'][0],
+        },
+        headline: json['Media-List']['Subhead2'][i],
+        copy: json['Media-List']['BodySubhead2'][i]
       }
     ];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items = items;
@@ -91,9 +116,16 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     };
 
     if (json['Col 1 / Copy Block']) {
+      const cta = [
+        {
+          text: json['Col 1 / Copy Block'].Cta[i],
+          type: "tertiary",
+          link: "#"
+        }
+      ];
       jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.headline = json['Col 1 / Copy Block'].Header[i];
       jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.copy = json['Col 1 / Copy Block'].Body[i];
-      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.cta = [{text: json['Col 1 / Copy Block'].Cta[i]}];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.cta = cta;
       jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.alt = json['Col 2 / Media Card']['Alt text'][i];
       jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.src['1x'] = json['Col 2 / Media Card']['src1x'][i] ? urlPrefix + json['Col 2 / Media Card']['src1x'][i] : urlPrefix + json['Col 2 / Media Card']['src1x'][0];
       jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.src['2x'] = json['Col 2 / Media Card']['src2x'][i] ? urlPrefix + json['Col 2 / Media Card']['src2x'][i] : urlPrefix + json['Col 2 / Media Card']['src2x'][0];
@@ -106,8 +138,24 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.copy = json['Section2 / Copy Block']['Body'][i];
     jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.cta[0].text = json['Section2 / Copy Block']['CTA'][i];
     jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.cta[1].text = json['Section2 / Copy Block']['CTA2'][i];
+    jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.theme = json['Section2 / Copy Block']['theme'][0];
 
-    // missing media card info
+    const images = [
+      {
+        image: {
+          alt: json['Intro/MediaCard']['Alt text'][i],
+          src: {
+            '1x': json['Intro/MediaCard']['src1x'][i] ? urlPrefix + json['Intro/MediaCard']['src1x'][i] : urlPrefix + json['Intro/MediaCard']['src1x'][0],
+            '2x': json['Intro/MediaCard']['src2x'][i] ? urlPrefix + json['Intro/MediaCard']['src2x'][i] : urlPrefix + json['Intro/MediaCard']['src2x'][0],
+            '3x': json['Intro/MediaCard']['src3x'][i] ? urlPrefix + json['Intro/MediaCard']['src3x'][i] : urlPrefix + json['Intro/MediaCard']['src3x'][0]
+          }
+        }
+      }
+    ];
+
+    jsonTranslations[i].landingRepeater.articleSections[6].mediaCard.images = images;
+    jsonTranslations[i].landingRepeater.articleSections[6].mediaCard.theme = json['Intro/MediaCard']['theme'][0];
+
     jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.headline = json['Section3 / Copy Block'].Header[i];
     jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.copy = json['Section3 / Copy Block'].Body[i];
     jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.cta[0].text = json['Section3 / Copy Block'].CTA[i];
@@ -121,7 +169,6 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
 
 const getRunfulnessTranslations = (json, jsonTranslations) => {
   translations.forEach((_, i) => {
-
     jsonTranslations[i].landingRepeater.heroMedia.background.alt = json['Hero Media']['Alt text'][i];
     jsonTranslations[i].landingRepeater.heroMedia.background.image = json['Hero Media']['Background image'][i] ? urlPrefix +  json['Hero Media']['Background image'][i] : urlPrefix + json['Hero Media']['Background image'][0];
     jsonTranslations[i].landingRepeater.heroMedia.content.title.text = json['Hero Media'].Header[i];
