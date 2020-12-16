@@ -1,9 +1,8 @@
 const fs = require("fs");
 const { google } = require("googleapis");
-const runfulnessP1 = require("../RunfulnessP1/runfulnessP1.json");
-const glycerin19 = require("../glycerin19Launch/glycerin19.json");
+const { auth } = require("googleapis/build/src/apis/abusiveexperiencereport");
 
-const translations = ["english", "german", "french", "italian", "Spanish"];
+const translations = ["eng", "ger", "fre", "ita", "spa"];
 const urlPrefix = '../../images/'
 
 const spreadsheetToJson = (rows) => {
@@ -30,13 +29,13 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.productHero.video.src.small = json['Hero Product']['video/src/small'][i] ? urlPrefix +  json['Hero Product']['video/src/small'][i] : urlPrefix + json['Hero Product']['video/src/small'][0];
     jsonTranslations[i].landingRepeater.productHero.eyebrow = json['Hero Product'].Eyebrow[i];
     jsonTranslations[i].landingRepeater.productHero.headline = json['Hero Product']['Header 1'][i];
-    jsonTranslations[i].landingRepeater.productHero.textOne = json['Hero Product']['Header 2 - Tease'][i];
+    //jsonTranslations[i].landingRepeater.productHero.textOne = json['Hero Product']['Header 2'];
 
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.eyebrow = json['Intro / Copy Block']['Eyebrow - Tease'][i],
+    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.eyebrow = json['Intro / Copy Block']['Eyebrow'] ? json['Intro / Copy Block']['Eyebrow'][i] : null;
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.headline = json['Intro / Copy Block'].Header[i];
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.copy = json['Intro / Copy Block']['Body  - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[0].text = json['Intro / Copy Block']['CTA - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[1].text = json['Intro / Copy Block']['CTA2 - Tease'][i];
+    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.copy = json['Intro / Copy Block']['Body'];
+    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[0].text = json['Intro / Copy Block']['CTA'] ? json['Intro / Copy Block']['CTA'][i] : null;
+    jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.cta[1].text = json['Intro / Copy Block']['CTA2'] ? json['Intro / Copy Block']['CTA2'][i] : null;
 
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.alt = json['Section1 / Copy Block']['Alt text'][i];
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[0].mediaCard.images[0].image.src['1x'] = json['Section1 / Copy Block']['src1x'][i] ? urlPrefix +  json['Section1 / Copy Block']['src1x'][i] : urlPrefix + json['Section1 / Copy Block']['src1x'][0];
@@ -56,44 +55,60 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
 
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].icon.url = json['Media-List']['items/icon2/url'][i] ? urlPrefix + json['Media-List']['items/icon2/url'][i] : urlPrefix + json['Media-List']['items/icon2/url'][0];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].headline = json['Media-List'].Subhead[i];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].copy = json['Media-List'].BodySubhead[i];
-
-
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[2].copy = json['Media-List'].BodySubhead[i];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].icon.url = json['Media-List']['items/icon3/url'][i] ? urlPrefix + json['Media-List']['items/icon3/url'][i] : urlPrefix + json['Media-List']['items/icon3/url'][0];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].headline = json['Media-List'].Subhead2[i];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].copy = json['Media-List'].BodySubhead[i];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].headline = json['Media-List'].Subhead2[i];
+    //jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.items[3].copy = json['Media-List'].BodySubhead[i];
 
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.alt = json.NewsLetterForm['Alt text'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['1x'] = json.NewsLetterForm['src1x'][i] ? urlPrefix +  json.NewsLetterForm['src1x'][i] : urlPrefix + json.NewsLetterForm['src1x'][0];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['2x'] = json.NewsLetterForm['src2x'][i] ? urlPrefix +  json.NewsLetterForm['src2x'][i] : urlPrefix + json.NewsLetterForm['src2x'][0];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['3x'] = json.NewsLetterForm['src3x'][i] ? urlPrefix +  json.NewsLetterForm['src3x'][i] : urlPrefix + json.NewsLetterForm['src3x'][0];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.header = json.NewsLetterForm['Header - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.description = json.NewsLetterForm['Body - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.label = json.NewsLetterForm['Eyebrow - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.complianceMessage = json.NewsLetterForm['Email message'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.placeholder = json.NewsLetterForm['Pre-populated form field copy - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.label = json.NewsLetterForm['Eyebrow2 - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.complianceMessage = json.NewsLetterForm['Phone message'][i];
-    jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.placeholder = json.NewsLetterForm['Pre-populated form field copy2 - Tease'][i];
+    if (json.NewsLetterForm) {
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.alt = json.NewsLetterForm['Alt text'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['1x'] = json.NewsLetterForm['src1x'][i] ? urlPrefix +  json.NewsLetterForm['src1x'][i] : urlPrefix + json.NewsLetterForm['src1x'][0];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['2x'] = json.NewsLetterForm['src2x'][i] ? urlPrefix +  json.NewsLetterForm['src2x'][i] : urlPrefix + json.NewsLetterForm['src2x'][0];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.image.src['3x'] = json.NewsLetterForm['src3x'][i] ? urlPrefix +  json.NewsLetterForm['src3x'][i] : urlPrefix + json.NewsLetterForm['src3x'][0];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.header = json.NewsLetterForm['Header'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.description = json.NewsLetterForm['Body'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.label = json.NewsLetterForm['Eyebrow'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.complianceMessage = json.NewsLetterForm['Email message'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[0].newsletterInput.placeholder = json.NewsLetterForm['Pre-populated form field copy'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.label = json.NewsLetterForm['Eyebrow2'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.complianceMessage = json.NewsLetterForm['Phone message'][i];
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm.forms[1].newsletterInput.placeholder = json.NewsLetterForm['Pre-populated form field copy2'][i];
+    } else {
+      jsonTranslations[i].landingRepeater.articleSections[3].newsletterForm = null;
+    };
 
-    jsonTranslations[i].landingRepeater.articleSections[4].copyBlock.headline = json['Section2 / Copy Block']['Header - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[4].copyBlock.copy = json['Section2 / Copy Block']['Body - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[4].copyBlock.cta[0].text = json['Section2 / Copy Block']['CTA - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[4].copyBlock.cta[1].text = json['Section2 / Copy Block']['CTA2 - Tease'][i];
+    if (json['Col 1 / Copy Block']) {
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.headline = json['Col 1 / Copy Block'].Header[i];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.copy = json['Col 1 / Copy Block'].Body[i];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[0].copyBlock.cta = [{text: json['Col 1 / Copy Block'].Cta[i]}];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.alt = json['Col 2 / Media Card']['Alt text'][i];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.src['1x'] = json['Col 2 / Media Card']['src1x'][i] ? urlPrefix + json['Col 2 / Media Card']['src1x'][i] : urlPrefix + json['Col 2 / Media Card']['src1x'][0];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.src['2x'] = json['Col 2 / Media Card']['src2x'][i] ? urlPrefix + json['Col 2 / Media Card']['src2x'][i] : urlPrefix + json['Col 2 / Media Card']['src2x'][0];
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer.columns[1].mediaCard.images[0].image.src['3x'] = json['Col 2 / Media Card']['src3x'][i] ? urlPrefix + json['Col 2 / Media Card']['src3x'][i] : urlPrefix + json['Col 2 / Media Card']['src3x'][0];
+    } else {
+      jsonTranslations[i].landingRepeater.articleSections[4].columnsContainer = null;
+    };
+
+    jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.headline = json['Section2 / Copy Block']['Header'][i];
+    jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.copy = json['Section2 / Copy Block']['Body'][i];
+    jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.cta[0].text = json['Section2 / Copy Block']['CTA'][i];
+    jsonTranslations[i].landingRepeater.articleSections[5].copyBlock.cta[1].text = json['Section2 / Copy Block']['CTA2'][i];
+
     // missing media card info
-    jsonTranslations[i].landingRepeater.articleSections[6].copyBlock.headline = json['Section3 / Copy Block'].Header[i];
-    jsonTranslations[i].landingRepeater.articleSections[6].copyBlock.copy = json['Section3 / Copy Block'].Body[i];
-    jsonTranslations[i].landingRepeater.articleSections[6].copyBlock.cta[0].text = json['Section3 / Copy Block'].CTA[i];
+    jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.headline = json['Section3 / Copy Block'].Header[i];
+    jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.copy = json['Section3 / Copy Block'].Body[i];
+    jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.cta[0].text = json['Section3 / Copy Block'].CTA[i];
 
-    jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.headline = json['Section4 / Copy Block'].Header[i];
-    jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.copy = json['Section4 / Copy Block']['Body - Tease'][i];
-    jsonTranslations[i].landingRepeater.articleSections[7].copyBlock.cta[0].text = json['Section4 / Copy Block'].CTA[i]
+    jsonTranslations[i].landingRepeater.articleSections[8].copyBlock.headline = json['Section4 / Copy Block'].Header[i];
+    jsonTranslations[i].landingRepeater.articleSections[8].copyBlock.copy = json['Section4 / Copy Block']['Body'][i];
+    jsonTranslations[i].landingRepeater.articleSections[8].copyBlock.cta[0].text = json['Section4 / Copy Block'].CTA[i];
   });
   return jsonTranslations;
 }
 
 const getRunfulnessTranslations = (json, jsonTranslations) => {
   translations.forEach((_, i) => {
+
     jsonTranslations[i].landingRepeater.heroMedia.background.alt = json['Hero Media']['Alt text'][i];
     jsonTranslations[i].landingRepeater.heroMedia.background.image = json['Hero Media']['Background image'][i] ? urlPrefix +  json['Hero Media']['Background image'][i] : urlPrefix + json['Hero Media']['Background image'][0];
     jsonTranslations[i].landingRepeater.heroMedia.content.title.text = json['Hero Media'].Header[i];
@@ -159,39 +174,60 @@ const createFile = (jsonTranslation, path) => {
   })
 }
 
-const glycerineLaunch = (auth) => {
+const landingLaunch = (auth, spreadSheetSrc, defaultJson, translationCallback, destinationPath) => {
   const sheets = google.sheets({ version: "v4", auth });
   sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1VneH5neC5OPKnUEICXCsDJHxtgnIGw6H1zwtFGpWuH8",
-      range: "Glycerin 19 Tease LP!A2:G",
-    },
+    spreadSheetSrc,
     (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
+      if (err) return
       const rows = res.data.values;
-      if (!rows.length) return console.log("No data found.");
-      const jsonTranslations = getJsonTranslations(glycerin19);
-      const glycerinTranslations = getGlycerinTranslations(spreadsheetToJson(rows), jsonTranslations);
-      createFile(glycerinTranslations, './languages/glycerin19Launch/');
-    }
-  );
-}
+      if (!rows.length) return
+      const jsonTranslations = getJsonTranslations(defaultJson);
 
-const runfulnessLaunch = (auth) => {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1VneH5neC5OPKnUEICXCsDJHxtgnIGw6H1zwtFGpWuH8",
-      range: "Runfulness Phase 1 LP!A2:G",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (!rows.length) return console.log("No data found.");
-      const jsonTranslations = getJsonTranslations(runfulnessP1);
-      const runfulnessTranslations = getRunfulnessTranslations(spreadsheetToJson(rows), jsonTranslations);
-      createFile(runfulnessTranslations, './languages/runfulnessP1/');
+      const landingTranslations = translationCallback(spreadsheetToJson(rows), jsonTranslations);
+      createFile(landingTranslations, `./languages/${destinationPath}`);
     });
 }
 
-module.exports = { runfulnessLaunch, glycerineLaunch }
+const parseLanding = (auth) => {
+  const spreadsheetId = '1VneH5neC5OPKnUEICXCsDJHxtgnIGw6H1zwtFGpWuH8';
+  const landingsParameters = {
+    runfulnessP1: {
+        range: 'Runfulness Phase 1 LP!A2:G',
+        defaultJson: require("../RunfulnessP1/runfulnessP1.json"),
+        destinationPath: 'runfulnessP1/landing-repeating~runfulness-p1_',
+        translationCallback: getRunfulnessTranslations
+    },
+    runfulnessP2: {
+        range: 'Runfulness Phase 2 LP!A2:G',
+        defaultJson: require("../RunfulnessP1/runfulnessP1.json"),
+        destinationPath: 'runfulnessP2/landing-repeating~runfulness-p2_',
+        translationCallback: getRunfulnessTranslations,
+    },
+    glycerin19Tease: {
+        range: 'Glycerin 19 Tease LP!A2:G',
+        defaultJson: require("../glycerin19Launch/glycerin19.json"),
+        destinationPath: 'glycerin19Tease/landing-repeating~glycerin19-tease_',
+        translationCallback: getGlycerinTranslations
+    },
+    glycerin19Launch: {
+        range: 'Glycerin 19 Launch LP!A2:G',
+        defaultJson: require("../glycerin19Launch/glycerin19.json"),
+        destinationPath: 'glycerin19Launch/landing-repeating~glycerin19-launch_',
+        translationCallback: getGlycerinTranslations
+    }
+  };
+
+  for (const [key, value] of Object.entries(landingsParameters)) {
+    const spreadSheetSrc = {
+      spreadsheetId,
+      range: value.range
+    };
+    const { defaultJson, translationCallback } = value;
+    const destinationPath = value.destinationPath;
+
+    landingLaunch(auth, spreadSheetSrc, defaultJson, translationCallback, destinationPath);
+  }
+}
+
+module.exports = { parseLanding }
