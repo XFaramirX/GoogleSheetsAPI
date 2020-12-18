@@ -144,6 +144,9 @@
                 }
             },
             {
+                "iframe": true
+            },
+            {
                 "copyBlock": {
                     "alignment": "center",
                     "theme": "theme--color--blue",
