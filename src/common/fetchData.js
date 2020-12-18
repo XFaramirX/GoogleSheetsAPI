@@ -169,10 +169,17 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
 
 const getRunfulnessTranslations = (json, jsonTranslations) => {
   translations.forEach((_, i) => {
-    jsonTranslations[i].landingRepeater.heroMedia.background.alt = json['Hero Media']['Alt text'][i];
-    jsonTranslations[i].landingRepeater.heroMedia.background.image = json['Hero Media']['Background image'][i] ? urlPrefix +  json['Hero Media']['Background image'][i] : urlPrefix + json['Hero Media']['Background image'][0];
+    //jsonTranslations[i].landingRepeater.heroMedia.background.alt = json['Hero Media']['Alt text'][i];
+    //jsonTranslations[i].landingRepeater.heroMedia.background.image = json['Hero Media']['Background image'][i] ? urlPrefix +  json['Hero Media']['Background image'][i] : urlPrefix + json['Hero Media']['Background image'][0];
     jsonTranslations[i].landingRepeater.heroMedia.content.title.text = json['Hero Media'].Header[i];
     jsonTranslations[i].landingRepeater.heroMedia.content.description = json['Hero Media'].Body[i];
+
+    jsonTranslations[i].landingRepeater.heroMedia.ambientVideo.cover.src = json['Hero Media']['Cover src'][i] ? urlPrefix +  json['Hero Media']['Cover src'][i] : urlPrefix + json['Hero Media']['Cover src'][0];;
+    jsonTranslations[i].landingRepeater.heroMedia.ambientVideo.cover.alt = json['Hero Media']['Alt text'][i];;
+    jsonTranslations[i].landingRepeater.heroMedia.ambientVideo.src.large = json['Hero Media']['Src large'][i] ? urlPrefix +  json['Hero Media']['Src large'][i] : urlPrefix + json['Hero Media']['Src large'][0];;
+    jsonTranslations[i].landingRepeater.heroMedia.ambientVideo.src.small = json['Hero Media']['Src small'][i] ? urlPrefix +  json['Hero Media']['Src small'][i] : urlPrefix + json['Hero Media']['Src small'][0];;
+    jsonTranslations[i].landingRepeater.heroMedia.ambientVideo.playLabel = json['Hero Media']['Playlabel'][i];
+    jsonTranslations[i].landingRepeater.heroMedia.ambientVideo.pauseLabel = json['Hero Media']['Pauselabel'][i];
 
     jsonTranslations[i].landingRepeater.articleSections[0].columnsContainer.columns[0].copyBlock.eyebrow = json['Intro/CopyBlock'].Eyebrow[i];
     jsonTranslations[i].landingRepeater.articleSections[0].columnsContainer.columns[0].copyBlock.headline = json['Intro/CopyBlock'].Header[i];

@@ -4,8 +4,7 @@
             "theme": "theme--dark--blue",
             "type": "gradient",
             "background": {
-                "image": "../../images/ghost10_3.jpg",
-                "alt": "Hero Image"
+                "video": true
             },
             "content": {
                 "title": {
@@ -14,6 +13,18 @@
                 },
                 "description": "A good run can unlock new ideas-we call this 'Runfulness' and we're on a mission to explore its power. Share your experience with Runfulness for a chance to recieve funds to turn your ideas into reality through the Run Fund.",
                 "actions": null
+            },
+            "ambientVideo": {
+                "cover": {
+                    "src":"../../images/ambient-video/cover.jpg",
+                    "alt": "Your browser does not support the video tag."
+                },
+                "src": {
+                    "large": "../../images/ambient-video/large.mp4",
+                    "small": "../../images/ambient-video/small.mp4"
+                },
+                "playLabel": "Play Hero Media video",
+                "pauseLabel": "Pause Hero Media video"
             }
         },
         "articleSections": [
