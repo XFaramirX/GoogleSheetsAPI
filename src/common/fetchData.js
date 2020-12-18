@@ -55,10 +55,16 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[1].copyBlock.headline = json['Section1 / Copy Block'].Subhead[i];
     jsonTranslations[i].landingRepeater.articleSections[1].columnsContainer.columns[1].copyBlock.copy = json['Section1 / Copy Block'].Body[i];
 
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.alt = json['Media-List']['Alt Text'][i];
+
+    /* jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.alt = json['Media-List']['Alt Text'][i];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['1x'] = json['Media-List']['src'][i] ? urlPrefix +  json['Media-List']['src'][i] : urlPrefix + json['Media-List']['src'][0];
     jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['2x'] = json['Media-List']['src2'][i] ? urlPrefix +  json['Media-List']['src2'][i] : urlPrefix + json['Media-List']['src2'][0];
-    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['3x'] = json['Media-List']['src3'][i] ? urlPrefix +  json['Media-List']['src3'][i] : urlPrefix + json['Media-List']['src3'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.image.src['3x'] = json['Media-List']['src3'][i] ? urlPrefix +  json['Media-List']['src3'][i] : urlPrefix + json['Media-List']['src3'][0]; */
+
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.ambientVideo.cover.src = json['Media-List']['src'][i] ? urlPrefix +  json['Media-List']['src'][i] : urlPrefix + json['Media-List']['src'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.ambientVideo.cover.alt = json['Media-List']['Alt Text'][i];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.ambientVideo.src.large = json['Media-List']['videoLarge'][i] ? urlPrefix +  json['Media-List']['videoLarge'][i] : urlPrefix + json['Media-List']['videoLarge'][0];
+    jsonTranslations[i].landingRepeater.articleSections[2].mediaWithList.media.ambientVideo.src.small = json['Media-List']['videoSmall'][i] ? urlPrefix +  json['Media-List']['videoSmall'][i] : urlPrefix + json['Media-List']['videoSmall'][0];
     const items = [
       {
         headline: json['Media-List'].Header[i],
