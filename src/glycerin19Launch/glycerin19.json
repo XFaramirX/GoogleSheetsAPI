@@ -87,14 +87,18 @@
                     "mediaTheme": "theme--light--pink",
                     "listTheme": "theme--white--blue",
                     "media": {
-                        "image": {
-                            "src": {
-                                "1x": "../../images/landings/glycerin/media-list/XL_Media-List_Featured_Still.jpg",
-                                "2x": "../../images/landings/glycerin/media-list/XL_Media-List_Featured_Still.jpg",
-                                "3x": "../../images/landings/glycerin/media-list/XL_Media-List_Featured_Still.jpg"
+                        "image": null,
+                        "ambientVideo": {
+                            "cover": {
+                                "src": "../../images/landings/glycerin/Media-List/M_Featured_Still.jpg",
+                                "alt": "A close-up shot of man running in a pair of blue Brooks Glycerin 19 shoes while illustrated clouds float across."
                             },
-                            "alt": "A close-up shot of man running in a pair of blue Brooks Glycerin 19 shoes while illustrated clouds float across.",
-                            "fit": "cover"
+                            "src": {
+                                "large": "../../images/landings/glycerin/Media-List/XL_Featured_Video.mp4",
+                                "small": "../../images/landings/glycerin/Media-List/S_Featured_Video.mp4"
+                            },
+                            "playLabel": "Play Ambient video",
+                            "pauseLabel": "Pause Ambient video"
                         },
                         "partial": null
                     },
