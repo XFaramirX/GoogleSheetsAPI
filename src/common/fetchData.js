@@ -3,7 +3,7 @@ const { google } = require("googleapis");
 const { auth } = require("googleapis/build/src/apis/abusiveexperiencereport");
 
 const translations = ["eng", "ger", "fre", "ita", "spa"];
-const urlPrefix = '../../images/landings/';
+const urlPrefix = 'https://staging.brooksrunning.com/on/demandware.static/-/Sites-BrooksRunning-Library/default/';
 
 const spreadsheetToJson = (rows) => {
   let currentSection = '';
@@ -29,7 +29,7 @@ const getGlycerinTranslations = (json, jsonTranslations) => {
     jsonTranslations[i].landingRepeater.productHero.video.src.small = json['Hero Product']['video/src/small'][i] ? urlPrefix +  json['Hero Product']['video/src/small'][i] : urlPrefix + json['Hero Product']['video/src/small'][0];
     jsonTranslations[i].landingRepeater.productHero.eyebrow = json['Hero Product'].Eyebrow[i];
     jsonTranslations[i].landingRepeater.productHero.headline = json['Hero Product']['Header 1'][i];
-    //jsonTranslations[i].landingRepeater.productHero.textOne = json['Hero Product']['Header 2'];
+    jsonTranslations[i].landingRepeater.productHero.textOne = json['Hero Product']['Header 2'][i];
 
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.eyebrow = json['Intro / Copy Block']['Eyebrow'] ? json['Intro / Copy Block']['Eyebrow'][i] : null;
     jsonTranslations[i].landingRepeater.articleSections[0].copyBlock.headline = json['Intro / Copy Block'].Header[i];
